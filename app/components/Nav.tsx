@@ -23,14 +23,20 @@ const Nav = ({ listClasses, linkClasses }: NavProps) => {
         <nav>
             <ul className={`flex gap-2 md:gap-3 ${listClasses}`}>
                 {Links.map(({ href, label }) => (
-                    <li key={`${href}${label}`}>
+                    <li key={`${href}${label}`} className="group">
                         <Link
                             href={href}
                             className={`text-sm md:text-base text-zinc-400 hover:text-zinc-50 transition-all pb-1 ${linkClasses} ${
-                                pathname === href ? "border-b" : ""
+                                pathname === href
+                                    ? " text-zinc-50 transition-all"
+                                    : ""
                             }`}>
                             {label}
                         </Link>
+                        <div
+                            className={` bg-zinc-50 group-hover:w-full h-[1px] transition-all duration-300 ${
+                                pathname === href ? "w-full" : "w-0"
+                            }`}></div>
                     </li>
                 ))}
             </ul>
