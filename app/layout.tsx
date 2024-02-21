@@ -19,16 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`h-screen w-screen flex flex-col text-center items-center justify-center overflow-hidden ${inter.className} gap-4 md:gap-8 lg:gap-12`}>
-                <header>
-                    <Nav />
-                </header>
-                {children}
-                <footer>
-                    <Socials />
-                </footer>
-            </body>
+            <body className={inter.className}>{children}</body>
         </html>
     );
 }

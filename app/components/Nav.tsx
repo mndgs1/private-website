@@ -26,17 +26,17 @@ const Nav = ({ listClasses, linkClasses }: NavProps) => {
                     <li key={`${href}${label}`} className="group">
                         <Link
                             href={href}
-                            className={`text-sm md:text-base text-zinc-400 hover:text-zinc-50 transition-all pb-1 ${linkClasses} ${
+                            className={`text-sm md:text-base text-zinc-400 group-hover:text-zinc-50 transition-all ${linkClasses} flex flex-col items-center ${
                                 pathname === href
                                     ? " text-zinc-50 transition-all"
                                     : ""
                             }`}>
                             {label}
+                            <div
+                                className={` bg-zinc-50 group-hover:w-full h-[1px] transition-all duration-300 ${
+                                    pathname === href ? "w-full" : "w-0"
+                                }`}></div>
                         </Link>
-                        <div
-                            className={` bg-zinc-50 group-hover:w-full h-[1px] transition-all duration-300 ${
-                                pathname === href ? "w-full" : "w-0"
-                            }`}></div>
                     </li>
                 ))}
             </ul>
