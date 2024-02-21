@@ -5,10 +5,10 @@ import React from "react";
 import { usePathname } from "next/navigation";
 
 const Links = [
+    { href: "/portfolio", label: "Portfolio" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
-    { href: "/projects", label: "Projects" },
 ];
 
 interface NavProps {
@@ -21,13 +21,13 @@ const Nav = ({ listClasses, linkClasses }: NavProps) => {
 
     return (
         <nav>
-            <ul className={`flex gap-2 ${listClasses}`}>
+            <ul className={`flex gap-2 md:gap-3 ${listClasses}`}>
                 {Links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
                             href={href}
-                            className={`${linkClasses} ${
-                                pathname === href ? "underline" : ""
+                            className={`text-sm md:text-base text-zinc-400 hover:text-zinc-50 transition-all pb-1 ${linkClasses} ${
+                                pathname === href ? "border-b" : ""
                             }`}>
                             {label}
                         </Link>

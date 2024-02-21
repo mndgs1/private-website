@@ -1,15 +1,6 @@
 import React from "react";
 
-interface GithubProps extends React.SVGProps<SVGSVGElement> {
-    fill?: string;
-    hoverFill?: string;
-}
-
-const Github = ({
-    fill = "#ececec",
-    hoverFill = "#4b4b4b",
-    ...rest
-}: GithubProps) => {
+const Github = () => {
     return (
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <title>GitHub</title>

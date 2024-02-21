@@ -2,6 +2,7 @@ import React from "react";
 import Github from "./Icons/Github";
 import LinkedIn from "./Icons/LinkedIn";
 import Link from "next/link";
+import Email from "./Icons/Email";
 
 const socialLinks = [
     {
@@ -14,18 +15,24 @@ const socialLinks = [
         href: "https://www.linkedin.com/in/mindaugas-bankauskas/",
         label: "LinkedIn",
     },
+    // {
+    //     icon: <Email />,
+    //     href: "mailto:mindaugasbankauskas@gmail.com",
+    //     label: "Email",
+    // },
 ];
+
 const Socials = () => {
     return (
         <ul className="flex">
             {socialLinks.map(({ icon, href, label }) => (
                 <li key={href} className="w-12 h-12">
-                    <a
+                    <Link
                         href={href}
                         aria-label={label}
-                        className="fill-[#d4d4d4] hover:fill-[#e7e7e7] w-full h-full inline-block p-2 transition-all">
+                        className="fill-zinc-400 hover:fill-zinc-50 w-full h-full inline-block p-2 transition-all">
                         {icon}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>
