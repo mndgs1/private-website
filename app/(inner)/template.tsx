@@ -22,6 +22,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 variants={variants}
                 initial="hidden"
                 animate="enter"
+                exit="hidden"
                 transition={{ type: "linear" }}>
                 <H1 className="mb-5">{title}</H1>
                 {children}
