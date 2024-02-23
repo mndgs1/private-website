@@ -6,7 +6,7 @@ interface H1Props extends React.HTMLAttributes<HTMLHeadingElement> {
 const H1 = ({ children, ...rest }: H1Props) => {
     return (
         <h1
-            className={`text-3xl md:text-4xl lg:text-6xl font-black text-zinc-50 ${rest.className}`}>
+            className={`text-4xl md:text-5xl lg:text-6xl font-black ${rest.className}`}>
             {children}
         </h1>
     );
