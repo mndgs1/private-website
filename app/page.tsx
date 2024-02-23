@@ -1,21 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import Nav from "./components/Nav";
-import Github from "./components/Icons/Github";
-import Socials from "./components/Socials";
-import H1 from "./components/H1";
-import H2 from "./components/H2";
+import Socials from "../components/Socials";
+import H1 from "../components/text/H1";
+import H2 from "../components/text/H2";
+import Navbar from "@/components/Navbar";
+import { variants } from "@/components/animation/variants";
 
 import { motion } from "framer-motion";
-
-const variants = {
-    hiddenLeft: { opacity: 0, x: "-150%", y: 0 },
-    hiddenTop: { opacity: 0, x: 0, y: "-200%" },
-    hiddenBottom: { opacity: 0, x: 0, y: "200%" },
-    enter: { opacity: 1, x: 0, y: 0 },
-};
 
 export default function Home() {
     return (
@@ -28,17 +19,17 @@ export default function Home() {
                 initial="hiddenTop"
                 animate="enter"
                 transition={{ type: "linear", duration: 0.6, delay: 0.6 }}>
-                <Nav />
+                <Navbar />
             </motion.header>
             <motion.main
                 variants={variants}
                 initial="hiddenLeft"
                 animate="enter"
                 transition={{ type: "linear", duration: 0.6 }}>
-                <main className="flex flex-col md:gap-2">
+                <div className="flex flex-col md:gap-2">
                     <H1 className="order-last">Mindaugas Bankauskas</H1>
                     <H2>Front-End Developer</H2>
-                </main>
+                </div>
             </motion.main>
             <motion.footer
                 variants={variants}
