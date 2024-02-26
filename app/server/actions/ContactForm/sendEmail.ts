@@ -45,12 +45,10 @@ export async function sendEmail({
 
     request
         .then((result: any) => {
-            console.log(result.body);
-            const { to } = result.body;
-            console.log(to[0]);
-            console.log(to[1]);
+            return `Thank you ${name} for your message! I will get back to you as soon as possible!`;
         })
         .catch((err: any) => {
             console.log(err.statusCode);
+            return `Oops! Something went wrong. Please try again later.`;
         });
 }

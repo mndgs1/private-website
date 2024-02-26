@@ -19,7 +19,6 @@ import { Textarea } from "@/components/ui/textarea";
 import {
     Select,
     SelectContent,
-    SelectGroup,
     SelectItem,
     SelectLabel,
     SelectTrigger,
@@ -116,7 +115,7 @@ export function ContactForm() {
                                         Colaboration
                                     </SelectItem>
                                     <SelectItem value="Project">
-                                        Project
+                                        Work inquires
                                     </SelectItem>
                                     <SelectItem value="Other">
                                         Other...
