@@ -2,6 +2,7 @@ import Socials from "@/components/Socials";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { ModeToggle } from "@/components/Modetoggle";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function InnerLayout({
     children,
@@ -28,6 +29,7 @@ export default function InnerLayout({
                     <Socials />
                 </div>
             </footer>
+            <Toaster />
         </>
     );
 }
