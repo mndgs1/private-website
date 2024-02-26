@@ -20,15 +20,16 @@ import {
     Select,
     SelectContent,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 
+import { sendEmail } from "@/app/server/actions/ContactForm/sendEmail";
+
 const formSchema = z.object({
-    username: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
+    name: z.string().min(2, {
+        message: "Name must be at least 2 characters.",
     }),
     email: z.string().email({ message: "Invalid email address." }),
     subject: z.string().min(1, { message: "Please select a subject." }),
@@ -42,7 +43,7 @@ export function ContactForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            name: "",
             email: "",
             subject: "",
             message: "",
@@ -52,7 +53,15 @@ export function ContactForm() {
     const { toast } = useToast();
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        const returnMessage = await sendEmail({
+            name: values.name,
+            email: values.email,
+            subject: values.subject,
+            message: values.message,
+        });
+
+        console.log(returnMessage);
         toast({
             title: "You submitted the following values:",
             description: (
@@ -70,7 +79,7 @@ export function ContactForm() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
                     control={form.control}
-                    name="username"
+                    name="name"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Name</FormLabel>

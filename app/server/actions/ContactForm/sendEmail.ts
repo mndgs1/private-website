@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const Mailjet = require("node-mailjet");
+
 const mailjet = Mailjet.apiConnect(
     process.env.MJ_APIKEY_PUBLIC,
     process.env.MJ_APIKEY_PRIVATE
@@ -33,12 +34,12 @@ export async function sendEmail({
                 ],
                 Subject: `Message from ${name}`,
                 HTMLPart: `
-                <div>
-                    <h1>${subject}</h1>
-                    <h2>${name}</h2>
-                    <h2>${email}</h2>
-                    <p>${message}</p>
-                </div>`,
+                    <div>
+                        <h1>${subject}</h1>
+                        <h2>${name}</h2>
+                        <h2>${email}</h2>
+                        <p>${message}</p>
+                    </div>`,
             },
         ],
     });
