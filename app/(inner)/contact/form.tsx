@@ -1,5 +1,6 @@
 "use client";
 
+// import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -25,8 +26,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 
-import { sendEmail } from "@/app/server/actions/ContactForm/sendEmail";
-
+import { submitContactForm } from "@/app/api/contactForm";
 const formSchema = z.object({
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
@@ -40,6 +40,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
     // 1. Define your form.
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -51,27 +52,21 @@ export function ContactForm() {
     });
 
     const { toast } = useToast();
-
+    // const [formReceived, setFormReceived] = useState(false);
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        const returnMessage = await sendEmail({
-            name: values.name,
-            email: values.email,
-            subject: values.subject,
-            message: values.message,
-        });
+        const response = await submitContactForm(values);
 
-        console.log(returnMessage);
-        toast({
-            title: "You submitted the following values:",
-            description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                    <code className="text-white">
-                        {JSON.stringify(values, null, 2)}
-                    </code>
-                </pre>
-            ),
-        });
+        console.log(response);
+        if (response.success) {
+            toast({
+                title: `Your message was sent! I will get back to you as soon as possible.`,
+            });
+        } else {
+            toast({
+                title: "There was an error sending your message. Please try again later.",
+            });
+        }
     }
 
     return (
@@ -123,7 +118,7 @@ export function ContactForm() {
                                     <SelectItem value="Colaboration">
                                         Colaboration
                                     </SelectItem>
-                                    <SelectItem value="Project">
+                                    <SelectItem value="Work inquires">
                                         Work inquires
                                     </SelectItem>
                                     <SelectItem value="Other">
