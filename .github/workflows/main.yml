@@ -19,6 +19,7 @@ jobs:
         server: ftp.mindb.no
         username: mindb.no
         password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
         protocol: ftps
         local-dir: ./.next/
         dry-run: true
