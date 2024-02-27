@@ -20,7 +20,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to server via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        uses: SamKirkland/SamKirkland/web-deploy@v1
         with:
           server: ${{secrets.SSH_HOST}}
           username: ${{secrets.SSH_USERNAME}}
