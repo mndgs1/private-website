@@ -1,28 +1,23 @@
-name: Publish Website
 on: push
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: 🚀 Deploy Website Every Commit
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Latest Code
+    - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: 📦 Install Packages
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: "npm"
-    - run: npm ci
-      
-    - name: 🔨 Build
-      run: npm run build
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
     
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        target-server: ${{secrets.SSH_HOST}}
-        remote-user: ${{secrets.SSH_USERNAME}}
-        private-ssh-key: ${{ secrets.SSH_PASSWORD }}
-        destination-path: ~/destinationFolder/
-
+        server: ftp.mindb.no
+        username: mindb.no
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftps
+        port: 21
