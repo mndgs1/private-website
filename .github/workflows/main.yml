@@ -25,3 +25,4 @@ jobs:
         remote-user: ${{secrets.SSH_USERNAME}}
         private-ssh-key: ${{ secrets.SSH_PASSWORD }}
         destination-path: ~/destinationFolder/
+
