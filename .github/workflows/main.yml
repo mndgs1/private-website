@@ -25,5 +25,5 @@ jobs:
           SOURCE: ".next/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          TARGET: /
+          TARGET: /www/
           EXCLUDE: "/dist/, /node_modules/"
