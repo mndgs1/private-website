@@ -1,26 +1,29 @@
-name: 🚀 Deploy website on push
-on:
-  push:
-    branches:
-        - main
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+name: Node CI
 
-    - name: 🔨 Build Project
-      run: |
-        npm install
-        npm run build
-        
-    - name: GitHub Deploy to One.com
-      uses: rostimelk/one.com-deployer@master
-      env:
-          ONE_DOMAIN_NAME: yourdomainname.com
-          ONE_SSH_KEY_PUBLIC: ${{ secrets.SSH_KEY_PUBLIC }}
-          ONE_SSH_KEY_PRIVATE: ${{ secrets.SSH_KEY_PRIVATE }}
-          TPO_SRC_PATH: "./.next/"
-          TPO_PATH: ""
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PRIVATE }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: ".next/"
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          TARGET: /
+          EXCLUDE: "/dist/, /node_modules/"
