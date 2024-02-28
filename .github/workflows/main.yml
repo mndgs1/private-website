@@ -1,5 +1,8 @@
-on: push
 name: 🚀 Deploy website on push
+on:
+  push:
+    branches:
+        - main
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -12,13 +15,12 @@ jobs:
       run: |
         npm install
         npm run build
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ftp.mindb.no
-        username: mindb.no
-        password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ftps
-        local-dir: ./.next/
-        dry-run: true
+        
+    - name: GitHub Deploy to One.com
+      uses: rostimelk/one.com-deployer@master
+      env:
+          ONE_DOMAIN_NAME: yourdomainname.com
+          ONE_SSH_KEY_PUBLIC: ${{ secrets.SSH_KEY_PUBLIC }}
+          ONE_SSH_KEY_PRIVATE: ${{ secrets.SSH_KEY_PRIVATE }}
+          TPO_SRC_PATH: "./.next/"
+          TPO_PATH: ""
