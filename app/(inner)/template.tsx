@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 const variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
@@ -17,16 +17,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
             : `${capitalizeFirstLetter(pathname.slice(1, pathname.length))}`;
 
     return (
-        <AnimatePresence>
-            <motion.main
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                exit="hidden"
-                transition={{ type: "linear" }}>
-                <H1 className="mb-5">{title}</H1>
-                {children}
-            </motion.main>
-        </AnimatePresence>
+        <motion.main
+            variants={variants}
+            initial="hidden"
+            animate="enter"
+            exit="hidden"
+            transition={{ type: "linear" }}>
+            <H1 className="mb-5">{title}</H1>
+            {children}
+        </motion.main>
     );
 }

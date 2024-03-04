@@ -8,7 +8,7 @@ interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
 const AnimatedButton = ({ type = "button", ...rest }: ButtonProps) => {
     return (
         <button
-            className="relative inline-block group m-1 p-2 clear-start border border-border"
+            className="relative inline-block group p-2 clear-start border border-border"
             type={type}
             {...rest}>
             <div className="absolute h-[1px] top-0 left-0 bg-dimmed w-0 z-10  group-hover:w-full transition-all duration-300"></div>
