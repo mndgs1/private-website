@@ -3,14 +3,14 @@ import React from "react";
 interface H1Props extends React.HTMLAttributes<HTMLHeadingElement> {
     children: React.ReactNode;
 }
-const H2 = ({ children, ...rest }: H1Props) => {
+const H3 = ({ children, ...rest }: H1Props) => {
     return (
-        <h2
-            className={`text-2xl md:text-3xl lg:text-5xl font-black mb-2`}
+        <h3
+            className={`text-lg md:text-xl lg:text-3xl font-black ${rest.className}`}
             {...rest}>
             {children}
-        </h2>
+        </h3>
     );
 };
 
-export default H2;
+export default H3;
