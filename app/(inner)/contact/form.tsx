@@ -27,7 +27,6 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 import { submitContactForm } from "@/app/api/contactForm";
-import { FormEventHandler } from "react";
 const formSchema = z.object({
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
@@ -56,22 +55,13 @@ export function ContactForm() {
     // const [formReceived, setFormReceived] = useState(false);
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        try {
-            const response = await submitContactForm(values);
-            if (response.success) {
-                toast({
-                    title: `Your message was sent! I will get back to you as soon as possible.`,
-                });
-                form.reset();
-            } else {
-                toast({
-                    variant: "destructive",
-                    title: "Uh oh! Something went wrong.",
-                    description:
-                        "There was a problem sending your message. Please try another contact method...",
-                });
-            }
-        } catch (e) {
+        const response = await submitContactForm(values);
+        if (response.success) {
+            toast({
+                title: `Your message was sent! I will get back to you as soon as possible.`,
+            });
+            form.reset();
+        } else {
             toast({
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
