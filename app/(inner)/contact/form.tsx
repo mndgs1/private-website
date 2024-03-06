@@ -27,6 +27,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 import { submitContactForm } from "@/app/api/contactForm";
+import { FormEventHandler } from "react";
 const formSchema = z.object({
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
@@ -55,16 +56,27 @@ export function ContactForm() {
     // const [formReceived, setFormReceived] = useState(false);
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        const response = await submitContactForm(values);
-
-        console.log(response);
-        if (response.success) {
+        try {
+            const response = await submitContactForm(values);
+            if (response.success) {
+                toast({
+                    title: `Your message was sent! I will get back to you as soon as possible.`,
+                });
+                form.reset();
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "Uh oh! Something went wrong.",
+                    description:
+                        "There was a problem sending your message. Please try another contact method...",
+                });
+            }
+        } catch (e) {
             toast({
-                title: `Your message was sent! I will get back to you as soon as possible.`,
-            });
-        } else {
-            toast({
-                title: "There was an error sending your message. Please try again later.",
+                variant: "destructive",
+                title: "Uh oh! Something went wrong.",
+                description:
+                    "There was a problem sending your message. Please try another contact method...",
             });
         }
     }
@@ -79,7 +91,11 @@ export function ContactForm() {
                         <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="" {...field} />
+                                <Input
+                                    placeholder=""
+                                    {...field}
+                                    disabled={form.formState.isSubmitting}
+                                />
                             </FormControl>
                             <FormDescription></FormDescription>
                             <FormMessage />
@@ -93,7 +109,11 @@ export function ContactForm() {
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input placeholder="" {...field} />
+                                <Input
+                                    placeholder=""
+                                    {...field}
+                                    disabled={form.formState.isSubmitting}
+                                />
                             </FormControl>
                             <FormDescription></FormDescription>
                             <FormMessage />
@@ -141,6 +161,7 @@ export function ContactForm() {
                                     placeholder=""
                                     {...field}
                                     className="min-h-40"
+                                    disabled={form.formState.isSubmitting}
                                 />
                             </FormControl>
                             <FormDescription></FormDescription>
@@ -148,7 +169,9 @@ export function ContactForm() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit" disabled={form.formState.isSubmitting}>
+                    Submit
+                </Button>
             </form>
         </Form>
     );
