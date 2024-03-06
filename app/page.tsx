@@ -4,6 +4,7 @@ import Socials from "../components/Socials";
 import H1 from "../components/text/H1";
 import H2 from "../components/text/H2";
 import Navbar from "@/components/Navbar";
+import { variants } from "@/components/animation/variants";
 
 import { motion } from "framer-motion";
 
@@ -14,13 +15,6 @@ const container = {
             staggerChildren: 0.35,
         },
     },
-};
-
-export const variants = {
-    hiddenLeft: { opacity: 0, x: "-100%", y: 0 },
-    hiddenTop: { opacity: 0, x: 0, y: "-100%" },
-    hiddenBottom: { opacity: 0, x: 0, y: "100%" },
-    enter: { opacity: 1, x: 0, y: 0 },
 };
 
 export default function Home() {

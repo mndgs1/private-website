@@ -22,8 +22,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
             initial="hidden"
             animate="enter"
             exit="hidden"
-            transition={{ type: "linear" }}>
-            <H1 className="mb-4 md:mb-8">{title}</H1>
+            transition={{ type: "linear" }}
+            className="grow px-8 sm:12 md:px-16 lg:px-24 xl:px-32 py-4 max-w-screen-2xl m-auto w-full z-10 flex items-center justify-center">
             {children}
         </motion.main>
     );
