@@ -7,7 +7,7 @@ const H3 = ({ children, className, ...rest }: H1Props) => {
     return (
         <h3
             {...rest}
-            className={` ${className} text-lg md:text-xl lg:text-3xl font-black`}>
+            className={` ${className} text-xl md:text-2xl font-black`}>
             {children}
         </h3>
     );

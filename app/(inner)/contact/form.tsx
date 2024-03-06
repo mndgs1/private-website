@@ -55,13 +55,22 @@ export function ContactForm() {
     // const [formReceived, setFormReceived] = useState(false);
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        const response = await submitContactForm(values);
-        if (response.success) {
-            toast({
-                title: `Your message was sent! I will get back to you as soon as possible.`,
-            });
-            form.reset();
-        } else {
+        try {
+            const response = await submitContactForm(values);
+            if (response.success) {
+                toast({
+                    title: `Your message was sent! I will get back to you as soon as possible.`,
+                });
+                form.reset();
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "Uh oh! Something went wrong.",
+                    description:
+                        "There was a problem sending your message. Please try another contact method...",
+                });
+            }
+        } catch (e) {
             toast({
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",

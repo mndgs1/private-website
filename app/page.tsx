@@ -43,8 +43,12 @@ export default function Home() {
                 animate="enter"
                 transition={{ type: "ease-in-out", duration: 1 }}>
                 <div className="flex flex-col md:gap-2">
-                    <H1 className="order-last">Mindaugas Bankauskas</H1>
-                    <H2>Front-End Developer</H2>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black">
+                        Mindaugas Bankauskas
+                    </h1>
+                    <h2 className="text-2xl md:text-3xl lg:text-5xl font-black">
+                        Front-End Developer
+                    </h2>
                 </div>
             </motion.main>
             <motion.footer
