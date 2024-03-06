@@ -1,4 +1,3 @@
-import { ReactComponentElement } from "react";
 import { IconBaseProps } from "react-icons/lib";
 
 interface Project {

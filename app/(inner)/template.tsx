@@ -23,7 +23,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
             animate="enter"
             exit="hidden"
             transition={{ type: "linear" }}>
-            <H1 className="mb-8">{title}</H1>
+            <H1 className="mb-4 md:mb-8">{title}</H1>
             {children}
         </motion.main>
     );

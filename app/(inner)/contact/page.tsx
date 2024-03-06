@@ -9,16 +9,15 @@ import Socials from "@/components/Socials";
 const Contact = () => {
     return (
         <article className="">
-            <section>
+            {/* <section>
                 <H2>Contact Information</H2>
                 <p>+47 942 15 193</p>
                 <p>
                     <Link href="mailto:contact@mindb.no">contact@mindb.no</Link>
                 </p>
                 <Socials />
-            </section>
+            </section> */}
             <section>
-                <H2>Message me!</H2>
                 <div className="max-w-lg mx-auto">
                     <ContactForm />
                 </div>
