@@ -94,6 +94,7 @@ export function ContactForm() {
                                     placeholder=""
                                     {...field}
                                     disabled={form.formState.isSubmitting}
+                                    autoComplete="name"
                                 />
                             </FormControl>
                             <FormDescription></FormDescription>
@@ -112,6 +113,7 @@ export function ContactForm() {
                                     placeholder=""
                                     {...field}
                                     disabled={form.formState.isSubmitting}
+                                    autoComplete="email"
                                 />
                             </FormControl>
                             <FormDescription></FormDescription>
@@ -127,7 +129,8 @@ export function ContactForm() {
                             <FormLabel>Subject</FormLabel>
                             <Select
                                 onValueChange={field.onChange}
-                                defaultValue={field.value}>
+                                defaultValue={field.value}
+                                name="subject">
                                 <FormControl>
                                     <SelectTrigger>
                                         <SelectValue placeholder="Select a subject" />
