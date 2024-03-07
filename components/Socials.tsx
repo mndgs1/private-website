@@ -59,7 +59,7 @@ function Iconwrap({
                 href={href}
                 className={linkClasses}
                 aria-label={label}
-                target="_blank">
+                target="blank">
                 {children}
             </Link>
         </div>

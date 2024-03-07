@@ -16,8 +16,8 @@ import { Project } from "@/app/types/types";
 const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
     return (
         <Card className="mb-4 lg:p-8">
-            <CardHeader className="">
-                <H1 className="">{title}</H1>
+            <CardHeader>
+                <H1>{title}</H1>
             </CardHeader>
             <CardContent className="lg:grid lg:grid-cols-2 lg:gap-8">
                 <p className="mb-4 lg:mb-0">{description}</p>
@@ -47,8 +47,7 @@ const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
                                                     href={item.href}
                                                     target="blank">
                                                     <item.logo.element
-                                                        className={`w-10 lg:w-12 h-10 lg:h-12 hover:opacity-90
-                                `}
+                                                        className={`w-10 lg:w-12 h-10 lg:h-12 hover:opacity-75 transition-all duration-300 ease-in-out`}
                                                         style={{
                                                             color: item.logo
                                                                 .color,

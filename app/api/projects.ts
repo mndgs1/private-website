@@ -66,8 +66,8 @@ const logos = {
         },
     },
     redux: {
-        name: "Redux",
-        href: "https://redux.js.org/",
+        name: "Redux Toolkit",
+        href: "https://redux-toolkit.js.org/",
         logo: {
             element: SiRedux,
             color: "#764ABC",
