@@ -4,7 +4,14 @@ import aboutMe from "@/app/api/about";
 
 import Image from "next/image";
 import H1 from "@/components/text/H1";
-import { Button } from "@/components/ui/button";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About | MB",
+    description:
+        "Mindaugas Bankauskas - Front-End Developer webpage. About me.",
+};
 
 const About = () => {
     return (

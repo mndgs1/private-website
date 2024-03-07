@@ -3,12 +3,15 @@ import React from "react";
 import { ContactForm } from "./form";
 
 import H1 from "@/components/text/H1";
-import H2 from "@/components/text/H2";
 import Link from "next/link";
-import { FaPaperPlane } from "react-icons/fa";
-import { FaPhone } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaPaperPlane, FaPhone, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact | MB",
+    description:
+        "Mindaugas Bankauskas - Front-End Developer webpage. Contact me for any inquiries.",
+};
 
 const Contact = () => {
     return (
@@ -20,7 +23,7 @@ const Contact = () => {
                 </div>
             </section>
             <section>
-                <H2 className="mb-2">Contact Information</H2>
+                <H1 className="mb-4">Contact Information</H1>
                 <div className="flex flex-col gap-2">
                     <p>Mindaugas Bankauskas</p>
                     <div>
