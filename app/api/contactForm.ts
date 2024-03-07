@@ -9,7 +9,7 @@ interface ContactFormValues {
 
 export async function submitContactForm(values: ContactFormValues) {
     const valuesWithKey = {
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY,
+        access_key: process.env.NEXT_WEB3FORMS_API_KEY,
         ...values,
     };
     try {
