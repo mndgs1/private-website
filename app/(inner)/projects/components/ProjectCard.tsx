@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import H2 from "@/components/text/H2";
-import H3 from "@/components/text/H3";
+import H1 from "@/components/text/H2";
+import H2 from "@/components/text/H3";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
@@ -16,8 +16,8 @@ import { Project } from "@/app/types/types";
 const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
     return (
         <Card className="mb-4 lg:p-8">
-            <CardHeader className="">
-                <H2 className="">{title}</H2>
+            <CardHeader>
+                <H1>{title}</H1>
             </CardHeader>
             <CardContent className="lg:grid lg:grid-cols-2 lg:gap-8">
                 <p className="mb-4 lg:mb-0">{description}</p>
@@ -31,11 +31,11 @@ const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
                     />
                 </div>
                 <div className="mb-4 lg:mb-0">
-                    <H3
+                    <H2
                         className="
             mb-2 lg:mb-4">
                         Built with
-                    </H3>
+                    </H2>
                     {stacks && (
                         <ul className="flex flex-wrap gap-3 lg:gap-6">
                             {stacks.map((item, index) => (
@@ -47,8 +47,7 @@ const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
                                                     href={item.href}
                                                     target="blank">
                                                     <item.logo.element
-                                                        className={`w-10 lg:w-12 h-10 lg:h-12 hover:opacity-90
-                                `}
+                                                        className={`w-10 lg:w-12 h-10 lg:h-12 hover:opacity-75 transition-all duration-300 ease-in-out`}
                                                         style={{
                                                             color: item.logo
                                                                 .color,

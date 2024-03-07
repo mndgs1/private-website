@@ -1,22 +1,14 @@
 import React from "react";
+import { Metadata } from "next";
 
-import AnimatedButton from "@/components/FancyButton";
-import H2 from "@/components/text/H2";
-import H3 from "@/components/text/H3";
-
-import Image from "next/image";
-import Link from "next/link";
 import projects from "@/app/api/projects";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
 import ProjectCard from "./components/ProjectCard";
+
+export const metadata: Metadata = {
+    title: "Projects | MB",
+    description:
+        "Mindaugas Bankauskas - Front-End Developer webpage. My projects.",
+};
 
 const Projects = () => {
     return (
