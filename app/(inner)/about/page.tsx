@@ -6,6 +6,10 @@ import Image from "next/image";
 import H1 from "@/components/text/H1";
 
 import { Metadata } from "next";
+import Link from "next/link";
+import { IoDocumentText } from "react-icons/io5";
+import { Button } from "@/components/ui/button";
+import CustomLink from "@/components/CustomLink";
 
 export const metadata: Metadata = {
     title: "About | MB",
@@ -38,6 +42,12 @@ const About = () => {
                         );
                     })}
                 </div>
+                <CustomLink
+                    href="/static/pdf/Mindaugas_Bankauskas_-_Frontend_Developer.pdf"
+                    target="_blank">
+                    <IoDocumentText className="mr-2 inline-block" />
+                    Resume
+                </CustomLink>
             </section>
         </article>
     );

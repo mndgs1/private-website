@@ -6,12 +6,31 @@ import H1 from "@/components/text/H1";
 import Link from "next/link";
 import { FaPaperPlane, FaPhone, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Metadata } from "next";
+import CustomLink from "@/components/CustomLink";
 
 export const metadata: Metadata = {
     title: "Contact | MB",
     description:
         "Mindaugas Bankauskas - Front-End Developer webpage. Contact me for any inquiries.",
 };
+
+const Links = [
+    {
+        href: "mailto:contact@mindb.no",
+        label: "contact@mindb.no",
+        icon: <FaPaperPlane className="inline-block mr-2" />,
+    },
+    {
+        href: "https://www.github.com/mndgs1",
+        label: "mndgs1",
+        icon: <FaGithub className="inline-block mr-2" />,
+    },
+    {
+        href: "https://www.linkedin.com/in/mindaugas-bankauskas/",
+        label: "Mindaugas Bankauskas",
+        icon: <FaLinkedin className="inline-block mr-2" />,
+    },
+];
 
 const Contact = () => {
     return (
@@ -24,7 +43,9 @@ const Contact = () => {
             </section>
             <section>
                 <H1 className="mb-4">Contact Information</H1>
-                <div className="flex flex-col gap-2">
+                <div
+                    className="flex flex-col gap-2 items-start
+                ">
                     <p>Mindaugas Bankauskas</p>
                     <div>
                         <p>Kløverstien 9, Grua</p>
@@ -34,27 +55,12 @@ const Contact = () => {
                         <FaPhone />
                         +47 942 15 193
                     </p>
-
-                    <Link
-                        href="mailto:contact@mindb.no"
-                        className="flex gap-2 items-center text-dimmed hover:text-foreground">
-                        <FaPaperPlane />
-                        contact@mindb.no
-                    </Link>
-                    <Link
-                        href="https://www.github.com/mndgs1"
-                        target="blank"
-                        className="flex gap-2 items-center text-dimmed hover:text-foreground">
-                        <FaGithub />
-                        mndgs1
-                    </Link>
-                    <Link
-                        href="https://www.linkedin.com/in/mindaugas-bankauskas/"
-                        target="blank"
-                        className="flex gap-2 items-center text-dimmed hover:text-foreground">
-                        <FaLinkedin />
-                        Mindaugas Bankauskas
-                    </Link>
+                    {Links.map(({ href, label, icon }) => (
+                        <CustomLink key={label} href={href} className="">
+                            {icon}
+                            {label}
+                        </CustomLink>
+                    ))}
                 </div>
             </section>
         </article>
@@ -62,3 +68,12 @@ const Contact = () => {
 };
 
 export default Contact;
+
+{
+    /* <CustomLink
+    href="/static/pdf/Mindaugas_Bankauskas_-_Frontend_Developer.pdf"
+    target="_blank">
+    < className="w-6 h-6 mr-2 inline-block" />
+    Resume
+</CustomLink>; */
+}
