@@ -79,8 +79,12 @@ const projects: Project[] = [
     {
         id: 1,
         title: "Holidaze",
-        description:
+        description: [
             "A bookings website where a user can book a property, list a property, and manage bookings. The project is using Noroff API.",
+            "If you want to test the website, you can use the following credentials:",
+            "Email: MinBan66364@stud.noroff.no",
+            "Password: 12341234",
+        ],
         status: "Done",
         grade: "A",
         image: "/static/images/Holidaze.png",
@@ -99,8 +103,9 @@ const projects: Project[] = [
     {
         id: 2,
         title: "weSell",
-        description:
+        description: [
             "My first React project using Tailwind, Typescript, React & Redux.",
+        ],
         status: "Done",
         grade: "A",
         image: "/static/images/weSell.png",
@@ -113,8 +118,9 @@ const projects: Project[] = [
     {
         id: 3,
         title: "iTrade",
-        description:
+        description: [
             "A fictional auction website using NOROFF Api. The code is written in plain javascript trying to emulate a framework. HTML, page builder scripts, components is all built with plain Javascript.",
+        ],
         status: "Done",
         grade: "A",
         image: "/static/images/iTrade.png",

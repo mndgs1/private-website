@@ -20,7 +20,13 @@ const ProjectCard = ({ title, description, image, stacks, links }: Project) => {
                 <H1>{title}</H1>
             </CardHeader>
             <CardContent className="lg:grid lg:grid-cols-2 lg:gap-8">
-                <p className="mb-4 lg:mb-0">{description}</p>
+                <div className="mb-4 lg:mb-0">
+                    {description.map((item, index) => (
+                        <p key={index} className="mb-1">
+                            {item}
+                        </p>
+                    ))}
+                </div>
                 <div className="lg:row-span-3 mb-4 lg:mb-0">
                     <Image
                         src={image}
