@@ -3,7 +3,7 @@ import { IconBaseProps } from "react-icons/lib";
 interface Project {
     id: number;
     title: string;
-    description: string;
+    description: string[];
     status: string;
     grade: string;
     image: string;
