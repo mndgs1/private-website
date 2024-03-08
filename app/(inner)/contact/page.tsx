@@ -56,7 +56,7 @@ const Contact = () => {
                         +47 942 15 193
                     </p>
                     {Links.map(({ href, label, icon }) => (
-                        <CustomLink key={label} href={href} className="">
+                        <CustomLink key={label} href={href} target="_blank">
                             {icon}
                             {label}
                         </CustomLink>
@@ -68,12 +68,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-{
-    /* <CustomLink
-    href="/static/pdf/Mindaugas_Bankauskas_-_Frontend_Developer.pdf"
-    target="_blank">
-    < className="w-6 h-6 mr-2 inline-block" />
-    Resume
-</CustomLink>; */
-}
