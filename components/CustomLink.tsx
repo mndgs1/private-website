@@ -6,14 +6,13 @@ interface CustomLinkProps
     children: React.ReactNode;
     className?: string;
     href: string;
-    target?: string;
 }
 
 const CustomLink = ({ children, className, ...rest }: CustomLinkProps) => {
     return (
         <Link
             {...rest}
-            className={`${className} text-dimmed  hover:text-foreground inline-flex items-center`}>
+            className={`${className} underline text-dimmed hover:text-foreground inline-flex items-center transition-all`}>
             {children}
         </Link>
     );
